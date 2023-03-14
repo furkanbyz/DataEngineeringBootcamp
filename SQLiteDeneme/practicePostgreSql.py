@@ -30,18 +30,33 @@ def havaDurumu():
         except:
             continue
 
-    # print("0 :: ",veriler[0])
-    # values=veriler[0].values()
-    # values=list(values)
+    print("veri:",veriler)
+    values=veriler[0].values()
+    values=list(values)
     # for i in values:
-    #     print(i)
+    #     print("i:",i)
     
-    # print("burada:", values[0])
+    print("values:",values)
+    print("burada:", values[1])
+    print("şehir:",values[0])
+    print("length:",len(veriler))
+    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
 
-    vaalues = veriler.values()
-    print(vaalues)
     
 
+    for i in range(len(veriler)):
+        print("yeni şehir:", values[i])
 
+        
+        # city=input("Şehir giriniz:")
+        # print("city:",city)
+        
+        # if (values[0]==city):
+
+        #     values=veriler[i].values()
+        #     values=list(values)
+        #     print("values:",values)
+        #     continue
+        
 
 havaDurumu()
