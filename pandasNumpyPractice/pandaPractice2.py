@@ -26,8 +26,8 @@ pd.set_option('display.width', 1000)
 # df=df["quantity"].sum()
 # toplam sipariş
 
-floatize = lambda x:float(x[1:-1])
-df["item_price"] = df["item_price"].apply(floatize)
+# floatize = lambda x:float(x[1:-1])
+# df["item_price"] = df["item_price"].apply(floatize)
 # item_price kolonundaki $ ve sondaki boşluklardan kurtulundu. Float türüne dönüştürüldü.
 
 # salary= (df["quantity"] * df["item_price"]).sum()
@@ -38,17 +38,15 @@ df["item_price"] = df["item_price"].apply(floatize)
 # print(totalorder)7
 # toplam sipariş
 
-salary= (df["quantity"] * df["item_price"])
-df["revenue"] = salary
+# salary= (df["quantity"] * df["item_price"])
+# df["revenue"] = salary
 # revenue kolonu oluşturuldu ve her üründen ne kadar kazanıldığı eklendi.
 
-df= df["item_name"].value_counts()
+# df= df["item_name"].value_counts()
 # her bir üründen kaçar tane satıldığı bulundu.
-df = df.count()
+# df = df.count()
 # kaç farklı ürün satıldığı bulundu
 
 
 print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
 print(df)
-# print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-
