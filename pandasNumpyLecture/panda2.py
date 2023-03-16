@@ -1,6 +1,6 @@
 import pandas as pd
 
-# df= pd.read_csv("data/grades.csv")
+df= pd.read_csv("../data/grades.csv")
 # df = df.head()
 # df = df. tail(11)
 # df.columns=["İSİM","SOYAD","ssn","test1","test2","test3","test4","FINAL","GRADE"]
@@ -30,7 +30,7 @@ import pandas as pd
 # print(df.loc[::-1,["Last name"]])
 # print(df.columns)
 
-# df = pd.read_csv("data/imdb_1000.csv")
+# df = pd.read_csv("../data/imdb_1000.csv")
 # df=df[2:5][["star_rating","duration"]]
 # df=df["star_rating"]>8.5
 # true false olarak getirir
@@ -64,7 +64,7 @@ import pandas as pd
 # satır silme
 
 
-df = pd.read_csv("data/ufo.csv")
+# df = pd.read_csv("../data/ufo.csv")
 # df = df.notnull()
 # df= df[df.notnull()]
 # df= df[df.isnull()]
@@ -76,7 +76,7 @@ df = pd.read_csv("data/ufo.csv")
 
 # df= df.dropna(subset=["City","State"])
 # df= df["Shape Reported"].fillna(value="Belirsiz",inplace=True)
-df = df["Shape Reported"].notnull()
+# df = df["Shape Reported"].notnull()
 
 print(df)
 

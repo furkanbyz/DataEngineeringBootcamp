@@ -12,6 +12,7 @@ veri2={
 }
 df2=pd.DataFrame(veri2)
 # df2.pop("yaş") 
+
 # yaş kolonu silindi
 
 print(df2.head)
