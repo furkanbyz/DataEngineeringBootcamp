@@ -21,7 +21,7 @@ df = pd.read_csv("data/fifa_cleaned.csv")
 # nationaly kolonu Germany olan kayıtlar gösterilir
 # df = df[df["nationality"]=="Germany"]
 # loc kullanılmadan bu şekilde de aynı veriler elde edilebilir
- 
+
 # df = df.loc[df["nationality"] == "Germany"][["name","value_euro"]].sort_values("value_euro",ascending=False)
 # aynı kayıtlar üzerinde sıralama yapıldı
 
@@ -76,30 +76,50 @@ df = pd.read_csv("data/fifa_cleaned.csv")
 
 # DATAFRAME BİRLEŞTİRME (concat(), merge())
 
-df1 = pd.read_csv("Data/ufo.csv")
-df2 = pd.read_csv("Data/grades.csv")
+# df1 = pd.read_csv("Data/ufo.csv")
+# df2 = pd.read_csv("Data/grades.csv")
+
+df1 = pd.DataFrame({'person': ['Cem', 'Can'], 'department': [
+                   'Engineering', 'Marketing']})
+df2 = pd.DataFrame({'person': ['Can', 'Cem'], 'date': [2017, 2018]})
 
 # df3 = pd.concat([df1,df2])
-# df1 ve df2yi birleştirdi
+# df1 ve df2yi birleştirdi, diğerinde bulunmayan kolonlar için nan değeri girilir
 
 # df3 = pd.concat([df1, df2], ignore_index=True)
-# df1 ve df2yi birleştirip index sırasını düzeltti
+# df1 ve df2yi birleştirip index sırasını düzeltti, diğerinde bulunmayan kolonlar için nan değeri girilir
 
-df3 = pd.concat([df1, df2], axis=1)
-# df1 ve df2yi yan yana ekledi (satır olarak)
+# df3 = pd.concat([df1, df2], axis=1)
+# df1 ve df2yi yan yana ekledi (satır olarak), nan olarak bırakmayıp index bilgilerini düzenledi. iki adet person kolonu var !!!
 # https://towardsdatascience.com/pandas-concat-tricks-you-should-know-to-speed-up-your-data-analysis-cd3d4fdfe6dd detay için incelenebilir
 
+# df3 = pd.merge(df1, df2)
+df3 = pd.merge(df1, df2, on="person")
+#Hangi kolonu baz alarak  işlem yapacağımızı seçebiliriz
+
+# MERGE CONCAT FARKI
+# Consider you have a dataset than contains credit card transactions. You have a bunch of columns about the details of a transaction and one column indicating customer ID. Another dataframe includes more detailed information about a customer and the customer ID as well. In order to combine these two dataframes, we can merge them on “customer ID” column so that entries match.
+
+df4 = pd.DataFrame({'department': ['Engineering', 'Marketing'],'head': ['Mete', 'Taylan']})
+
+df5 = pd.merge(df3,df4)
 
 print("@@@@@@@@@@@@@@@@@@@@ OUTPUT @@@@@@@@@@@@@@@@@@@@")
-print("df1:",df1)
+print("df1:")
+print(df1)
 print("@@@@@@@@@@@@@@@@@@@@ OUTPUT @@@@@@@@@@@@@@@@@@@@")
-print("df2:",df2)
+print("df2:")
+print(df2)
 print("@@@@@@@@@@@@@@@@@@@@ OUTPUT @@@@@@@@@@@@@@@@@@@@")
-print("df3:",df3)
+print("df3:")
+print(df3)
+print("@@@@@@@@@@@@@@@@@@@@ OUTPUT @@@@@@@@@@@@@@@@@@@@")
+print("df4:")
+print(df4)
+print("@@@@@@@@@@@@@@@@@@@@ OUTPUT @@@@@@@@@@@@@@@@@@@@")
+print("df5:")
+print(df5)
 
-
-# https://cemayan.medium.com/pandas-ile-veri-analizi-2-data-selection-missing-values-4ecec921be87  son olarak merge kaldı
-# https://cemayan.medium.com/pandas-ile-veri-analizi-3-aggregation-and-grouping-f74ce504bc30  devamı
 
 
 
