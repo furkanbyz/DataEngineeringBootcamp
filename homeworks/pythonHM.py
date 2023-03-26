@@ -1,6 +1,5 @@
 import random
 
-
 def numberGenerator():
     for i in range(50):
         number = [5, 5, 5, "-"]
@@ -20,3 +19,6 @@ def numberGenerator():
 
 
 numberGenerator()
+
+# run with python pythonHm.py in VSCode terminal
+
