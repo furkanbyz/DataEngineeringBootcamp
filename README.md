@@ -4,7 +4,9 @@ postgreSql şifre: postgre
 localhost: 5432
 
 @@@@@ SQL TEMELLERİ @@@@@
+
 @@@SELECT, WHERE, BETWEEN IN@@@
+
 -- select title, length from film where length<=120 and length>=90
 -- select title, length from film where length between 90 and 120
 -- yukarıdaki iki komut aynı çıktıyı verir
