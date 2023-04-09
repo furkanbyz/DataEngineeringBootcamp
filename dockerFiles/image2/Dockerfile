@@ -20,3 +20,4 @@ COPY . .
 
 CMD ["uvicorn","main:app","--host=0.0.0.0.","--port=8000"]
 # 8000 containerın portu
+# terminalde python çalıştırmak için python main.py deniyor, uvicorn da burada python görevini görüyor
