@@ -14,3 +14,5 @@ send = publisher.publish(topic_address,data=message.encode("utf-8"))
 
 
 print(f"Message ID : {send.result()}")
+
+# localden clouda mesaj gönderme bu şekilde yapılır.
