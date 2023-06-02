@@ -26,7 +26,7 @@ topic_name = 'tobigquery'
 
 # Gönderilecek mesaj verisi
 message = {
-    'ad': 'furkan',
+    'ad': 'kerem',
     'soyad': 'beyaz'
 }
 

@@ -3,7 +3,7 @@ import os
 
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="qualified-ace-386113-c42ff9e1301f.json"
 project_id = "qualified-ace-386113" #gcp project id
-topic_name = "de_subat_gcs_to_pubsub"
+topic_name = "de_subat_gcs_to_pubsub_tekrar"
 
 message = "merhaba pubsub"
 
