@@ -11,8 +11,8 @@ producer = KafkaProducer(bootstrap_servers='localhost:9092')
 
 for _, row in augmented_data.iterrows():
     time.sleep(1)
-    data_dict = row.to_dict()
-    json_data = json.dumps(data_dict)
+    data_dict = row.to_dict() #dicte çevirdi
+    json_data = json.dumps(data_dict) #json formatına dönüştü
     producer.send('ornek', json_data.encode('utf-8'))
 
 producer.flush()
