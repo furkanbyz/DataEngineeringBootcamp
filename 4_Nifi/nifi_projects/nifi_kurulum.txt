@@ -1,0 +1,5 @@
+cd nifi-1.13.2/bin/
+
+./nifi.sh start
+
+./nifi.sh status
