@@ -23,7 +23,8 @@ with DAG(
     )
     transform3= BashOperator(
         task_id="transform3",
-        bash_command="echo ilk airflow taskımı oluşturdum"
+        bash_command="sleep 2"
+        #iki saniye bekleyip sonra çalıştırır
     )
     load= BashOperator(
         task_id="load",
