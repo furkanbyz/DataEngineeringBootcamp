@@ -1,0 +1,15 @@
+-VM üzerinde 22.? ubuntu pro ve 8gb ramli bir makine oluştur
+
+SSH:
+sudo apt-get update
+sudo apt-get install docker.io
+sudo apt-get install docker-compose
+echo -e "AIRFLOW_UID=$(id -u)" > .env
+sudo docker-compose up airflow-init
+sudo docker-compose up -d
+
+#Docker Compose kullanarak Airflow'ın başlatılması: Docker Compose, birden fazla Docker konteynerini tek bir yapılandırma dosyasında yönetmeye olanak tanır. "docker-compose up" komutu, bu yapılandırma dosyasını temel alarak belirtilen konteynerleri başlatır. "airflow-init" komutu, Docker Compose tarafından belirtilen Airflow konteynerinin başlatılmasını sağlar.
+
+#"airflow-init" komutunun çalıştırılması: Airflow, bir veri işleme ve akış yönetimi platformudur. "airflow-init" komutu, Airflow'nun ilk kurulumunu ve yapılandırmasını gerçekleştirir. Bu adım, veritabanını oluşturur, gerekli tabloları oluşturur ve Airflow yapılandırma dosyalarını ayarlar.
+
+externalIP:8080 ile airflowa gidilebilir. kullanıcı adı ve şifre "airflow"
