@@ -6,8 +6,8 @@ from airflow.providers.google.cloud.operators.bigquery import BigQueryExecuteQue
 
 
 
-PROJE_AD = "steadfast-wares-388305"
-DB_AD = "db"
+PROJE_AD = "qualified-ace-386113"
+DB_AD = "ders"
 
 
 with DAG(
@@ -18,18 +18,18 @@ with DAG(
 
     load_data = GCSToBigQueryOperator(
         task_id = "load_data",
-        bucket="bigquery_json2",
+        bucket="bigquery_json",
         source_objects="uber_data.csv",
         source_format="CSV",
         skip_leading_rows=1,
-        field_delimiter=",",
+        field_delimiter=",",#csv'deki datalar virgül ile ayrılmış
         destination_project_dataset_table=f"{PROJE_AD}.{DB_AD}.butun_veri1",
-        create_disposition="CREATE_IF_NEEDED", 
+        create_disposition="CREATE_IF_NEEDED", #böyle bir yapı yoksa oluşturur
         write_disposition="WRITE_TRUNCATE",
-        # WRITE_EMPTY
-        # WRITE_APPEND
-        # WRITE_TRUNCATE
-        gcp_conn_id="google_cloud_default"
+        # WRITE_EMPTY : sürekli aynı veriyi tablonun altına ekler
+        # WRITE_APPEND : öyle bir tablo yoksa oluşturur varsa hata verir
+        # WRITE_TRUNCATE : tablo yoksa oluşturur varsa da verilerin tamamını silip yenisini yazar
+        gcp_conn_id="google_cloud_default" # airflow - admin - connections menüsünde oluşturulan connection id
     )
 
     sorgu =f"Select * from {PROJE_AD}.{DB_AD}.butun_veri1 where tip_amount > 3.3"
