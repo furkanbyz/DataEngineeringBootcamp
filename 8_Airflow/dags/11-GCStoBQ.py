@@ -6,8 +6,8 @@ from airflow.providers.google.cloud.operators.bigquery import BigQueryExecuteQue
 
 
 
-PROJE_AD = "qualified-ace-386113"
-DB_AD = "ders"
+PROJE_AD = "qualified-ace-386113" # proje ıd
+DB_AD = "ders" # bigquery'de kullanılacak olan db adı
 
 
 with DAG(
@@ -15,14 +15,15 @@ with DAG(
     schedule="@daily",
     start_date=pendulum.datetime(2023,5,31,tz="UTC")
     ) as dag:
-
+    
+    #Configuring the operator to load data from GCS to BigQuery:
     load_data = GCSToBigQueryOperator(
         task_id = "load_data",
         bucket="bigquery_json",
         source_objects="uber_data.csv",
         source_format="CSV",
         skip_leading_rows=1,
-        field_delimiter=",",#csv'deki datalar virgül ile ayrılmış
+        field_delimiter=",",#csv'deki dataları virgül ile ayırır
         destination_project_dataset_table=f"{PROJE_AD}.{DB_AD}.butun_veri1",
         create_disposition="CREATE_IF_NEEDED", #böyle bir yapı yoksa oluşturur
         write_disposition="WRITE_TRUNCATE",
@@ -32,8 +33,11 @@ with DAG(
         gcp_conn_id="google_cloud_default" # airflow - admin - connections menüsünde oluşturulan connection id
     )
 
+    #Veri analizi için bir SQL sorgusu tanımlıyoruz: 
+    #Bu sorgu, butun_veri1 tablosundaki tip_amount sütunu 3.3'ten büyük olan tüm satırları seçer.
     sorgu =f"Select * from {PROJE_AD}.{DB_AD}.butun_veri1 where tip_amount > 3.3"
 
+    #BigQuery'de yeni bir tablo oluşturmak için sorguyu çalıştırıyoruz:
     create_new_table = BigQueryExecuteQueryOperator(
         task_id = "create_new_table",
         sql=sorgu,
