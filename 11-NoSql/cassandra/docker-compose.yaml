@@ -1,0 +1,8 @@
+version: '3'
+services:
+  cassandra-1:
+    image: cassandra
+    container_name: cassandra
+    mem_limit: 2g
+    ports:
+      - "9042:9042"
