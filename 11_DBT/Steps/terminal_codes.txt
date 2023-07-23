@@ -1,0 +1,6 @@
+pip install dbt-core
+pip install dbt-bigquery
+python.exe -m pip install --upgrade pip
+dbt --version
+dbt init dbt_tutorial --profiles-dir .
+

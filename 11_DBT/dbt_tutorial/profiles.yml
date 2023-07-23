@@ -1,0 +1,14 @@
+dbt_tutorial:
+  outputs:
+    dev:
+      dataset: dbt_deneme
+      job_execution_timeout_seconds: 1
+      job_retries: 1
+      keyfile: C:\Users\win10\Desktop\programlar\Data Engineering Bootcamp\DataEngineeringBootcamp\11_DBT\qualified-ace-386113-acb19e2ff46a.json
+      location: US
+      method: service-account
+      priority: interactive
+      project: qualified-ace-386113
+      threads: 60
+      type: bigquery
+  target: dev
