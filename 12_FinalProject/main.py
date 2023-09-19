@@ -29,7 +29,7 @@ for stock in tech_list:
 # company_list = [AAPL, GOOG, MSFT, AMZN]
 company_list = [AAPL, MSFT, IBM, GOOG, ORCL]
 # company_name = ["APPLE", "GOOGLE", "MICROSOFT", "AMAZON"]
-company_name = ["AAPLE", "MICROSOFT", "IBM", "GOOGLE", "ORACLE"]
+company_name = ["APPLE", "MICROSOFT", "IBM", "GOOGLE", "ORACLE"]
 
 #dataframe'e company_name adinda yeni bir kolon ekle
 for company, com_name in zip(company_list, company_name):
